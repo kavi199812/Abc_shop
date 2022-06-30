@@ -39,7 +39,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cat_name'=>'required'
+            'cat_name'=>'required|unique:categories'
 
         ]);
 
