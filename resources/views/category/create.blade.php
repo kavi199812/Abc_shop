@@ -11,7 +11,7 @@
                     @csrf
                     <br>
                     <input type="text" name="cat_name" id="name" class="form-control" placeholder="Category name" required/></br>
-                    <spam class="text-danger">@error('cat_name_name'){{$message}} @enderror</spam>
+                    <spam class="text-danger">@error('cat_name'){{$message}} @enderror</spam>
                     <input type="submit" value="Submit Your category" class="btn btn-success"></br>
 
                 </form>
