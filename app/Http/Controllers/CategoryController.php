@@ -17,7 +17,9 @@ class CategoryController extends Controller
         $data = Category::query()
             ->get();
 
-        return view('category.index',compact('data'));
+        return response()->json(['category'=>$data],200);
+
+        // return view('category.index',compact('data'));
     }
 
     /**
@@ -47,7 +49,9 @@ class CategoryController extends Controller
             'cat_name' => $request->input('cat_name'),
         ]);
 
-        return redirect()->route('category.index')->with('status','Successfully added your Category');
+        return response()->json(['message'=>'product added sussuefully'],200);
+
+       // return redirect()->route('category.index')->with('status','Successfully added your Category');
     }
 
     /**
@@ -58,7 +62,11 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Category::query()
+            ->find($id);
+
+        return response()->json(['category'=>$data],200);
+
     }
 
     /**
@@ -90,8 +98,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $cat)
     {
-        //
+        $cat->delete();
+        return response()->json(['message'=>compact('cat'),'product Delete sussuefully'],200);
+
     }
 }

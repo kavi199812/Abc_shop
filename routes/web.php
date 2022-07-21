@@ -21,3 +21,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/category', \App\Http\Controllers\CategoryController::class);
 Route::resource('/product', \App\Http\Controllers\ProductController::class);
+Route::get('/new', [App\Http\Controllers\newBranch\newBranchController::class, 'index'])->name('new');
